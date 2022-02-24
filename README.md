@@ -1,5 +1,7 @@
 # frontend
 
+### Lints and fixes files
+Replace this variable value `VUE_APP_ROOT_API` with your API URL on .env.development.local if you are on development enviroment or .env.production.local if you are building it.
 ## Project setup
 ```
 npm install
