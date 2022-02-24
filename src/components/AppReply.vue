@@ -1,0 +1,68 @@
+<template>
+  <div
+    class="reply w-100 d-flex flex-column justify-content-strech align-items-center border shadow-lg mx-auto position-relative cursor-pointer"
+  >
+    <input
+      type="text"
+      name=""
+      class="w-100 h-100 ps-3 pe-5"
+      v-model="reply"
+      @keypress.enter="postReply"
+    />
+    <div
+      class="toggle-active-deep user-select-none rounded-circle p-2"
+      style="position: absolute; top: 7.5px; right: 7.5px"
+      @click="postReply"
+    >
+      <svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.03132 8.91684L19.508 4.58337C19.8835 4.47824 20.2294 4.82421 20.1243 5.19967L15.7908 20.6763C15.6642 21.1284 15.0407 21.1726 14.8517 20.7429L11.6034 13.3605C11.5531 13.246 11.4616 13.1546 11.3471 13.1042L3.96477 9.85598C3.53507 9.66692 3.57926 9.04342 4.03132 8.91684Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import axios from "axios";
+
+export default defineComponent({
+  name: "AppReply",
+  emits: ["hide"],
+  props: {
+    commentId: Number,
+  },
+  setup: (props, { emit }) => {
+    const reply = ref<string>("");
+    const postReply = async () => {
+      const comment = {
+        parent_id: props.commentId,
+        body: reply.value,
+        user_id: 1,
+      };
+      await axios.post(`${process.env.VUE_APP_ROOT_API}/comments`, comment);
+      emit("hide");
+    };
+
+    return {
+      reply,
+      postReply,
+    };
+  },
+});
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+$replySectionHeight: 60px;
+
+.reply {
+  background-color: #f7fcfd;
+  height: $replySectionHeight;
+  border-radius: 1.3rem;
+
+  & input[type="text"] {
+    border-radius: 1.3rem;
+    border: none !important;
+  }
+}
+</style>

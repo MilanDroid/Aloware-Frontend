@@ -1,0 +1,38 @@
+$theme-color: (
+    "body": #ececec,
+    "body-secondary": #FCFCFC,
+    // "primary": #AE1016,
+    "link": #00458b,
+    "text": #2F2F2F,
+    "muted": #A2A2A2,
+    "gray": #2F2F2F,
+    "light-gray": #F2F2F2,
+    "white": #FFFFFF,
+    "black": #000000,
+);
+
+// Navbar
+$navbar-height: 86px;
+$navbar-height-mobile: 55px;
+
+// Font families
+$font-family: 'Montserrat', sans-serif;
+$font-family-secondary: 'Michroma', sans-serif;
+
+// Fonts weight
+$standar-font-thin-weight: 100;
+$standar-font-extra-light-weight: 200;
+$standar-font-light-weight: 300;
+$standar-font-regular-weight: 400;
+$standar-font-medium-weight: 500;
+$standar-font-semi-bold-weight: 600;
+$standar-font-bold-weight: 700;
+$standar-font-extra-bold-weight: 800;
+$standar-font-black-weight: 900;
+
+// Borders
+$border-regular: 1px;
+$border-bold: 2px;
+
+$max-width: 720px;
+$mobile-width: 576px;

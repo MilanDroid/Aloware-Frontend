@@ -1,0 +1,36 @@
+@mixin background-colors($colors) {
+    @each $name, $color in $colors {
+        .bg-brand-#{$name} {
+            background-color: $color;
+        }
+    }
+    
+    .bg-brand-primary {
+        background-color: var(--client-color);
+    }
+}
+
+@mixin text-colors($colors) {
+    @each $name, $color in $colors {
+        .text-brand-#{$name} {
+            color: $color;
+        }
+    }
+    
+    .text-brand-primary {
+        color: var(--client-color);
+    }
+}
+
+@mixin border-colors($colors) {
+    @each $name, $color in $colors {
+        .border-color-brand-#{$name} {
+            border-color: $color !important;
+        }
+    }
+
+    .border-color-brand-primary {
+        border-color: var(--client-color) !important;
+    }
+}
+
